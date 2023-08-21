@@ -25,15 +25,16 @@ const Navbar = () => {
       </Stack>
       <div style={{ margin:20 }} /> 
         <Stack  spacing={{ xs: 1, sm: 2 }} direction="row" useFlexGap flexWrap="wrap" >
+        <NavLink to="/home" style={{ color:'white', textDecoration: 'none'}}>
           <Link
             href="/home"
             underline="none"
-            color={isLinkActive('/') ? 'white' : 'inherit'}
-            sx={{ marginRight: 2, fontWeight: isLinkActive('/') ? 'bold' : 'normal', '&:hover': { fontWeight: 'bold'  } }}
+            color={isLinkActive('/home') ? 'white' : 'inherit'}
+            sx={{ marginRight: 2, fontWeight: isLinkActive('/home') ? 'bold' : 'normal', '&:hover': { fontWeight: 'bold'  } }}
           >
             Home
-          </Link>
-          <NavLink to="/movies">
+          </Link></NavLink>
+          <NavLink to="/movies" style={{ color:'white', textDecoration: 'none'}}>
           <Link
             href="/movies"
             underline="none"
@@ -42,6 +43,7 @@ const Navbar = () => {
           >
             Movies
           </Link></NavLink>
+          <NavLink to="/tvshows" style={{ color:'white', textDecoration: 'none'}}>
           <Link
             href="/tvshows"
             underline="none"
@@ -49,7 +51,8 @@ const Navbar = () => {
             sx={{ marginRight: 2, fontWeight: isLinkActive('/tvshows') ? 'bold' : 'normal', '&:hover': { fontWeight: 'bold'  } }}
           >
             TV Shows
-          </Link>
+          </Link></NavLink>
+          <NavLink to="/webseries" style={{ color:'white', textDecoration: 'none'}}>
           <Link
             href="/webseries"
             underline="none"
@@ -57,7 +60,8 @@ const Navbar = () => {
             sx={{ marginRight: 2, fontWeight: isLinkActive('/webseries') ? 'bold' : 'normal', '&:hover': { fontWeight: 'bold'  } }}
           >
             Web Series
-          </Link>
+          </Link></NavLink>
+          <NavLink to="/subscription" style={{ color:'white', textDecoration: 'none'}}>
           <Link
             href="/subscription"
             underline="none"
@@ -65,7 +69,7 @@ const Navbar = () => {
             sx={{ marginRight: 2, fontWeight: isLinkActive('/subscription') ? 'bold' : 'normal', '&:hover': { fontWeight: 'bold' } }}
           >
             Subscription
-          </Link>
+          </Link></NavLink>
         </Stack>
         <div style={{ flexGrow: 1 }} /> 
         <Stack direction='row'>
