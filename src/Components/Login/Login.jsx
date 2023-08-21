@@ -2,7 +2,7 @@ import React, { createContext, useState } from 'react';
 import { TextField, Button,Box, Typography } from '@mui/material';
 import axios from 'axios';
 import { PROJECT_ID } from '../../api';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 const Login = () => {
  
   const navigate=useNavigate()
@@ -62,7 +62,7 @@ const Login = () => {
       style={{backgroundColor:'red',margin:'40px 0 0 30px',width:400}}>
         Login
       </Button>
-      <Typography variant='subtitle2' style={{color:'white',margin:'30px'}}>New user?<a style={{fontWeight:700,color:'white'}} href="/register">Register</a></Typography>
+      <Typography variant='subtitle2' style={{color:'white',margin:'30px'}}>New user?<Link style={{fontWeight:700,color:'white'}} to="/register">Register</Link></Typography>
       </Box>
     </form>
   )
