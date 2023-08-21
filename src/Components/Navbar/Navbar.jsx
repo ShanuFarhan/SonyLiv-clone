@@ -21,7 +21,8 @@ const Navbar = () => {
       <Toolbar className='navbar'>
         <img  src="https://images.slivcdn.com/UI_icons/sonyliv_new_revised_header_logo.png?h=246&w=246&t=c_fill&q=low&fr=webp" alt="" />
       <Stack>
-      <Button className='subbtn' size="small" variant="contained">Subscribe</Button>
+      <NavLink to="/subscription" style={{ color:'white', textDecoration: 'none'}}>
+      <Button className='subbtn' size="small" variant="contained">Subscribe</Button></NavLink>
       </Stack>
       <div style={{ margin:20 }} /> 
         <Stack  spacing={{ xs: 1, sm: 2 }} direction="row" useFlexGap flexWrap="wrap" >
@@ -90,8 +91,8 @@ const Navbar = () => {
             onClose={handleProfileMenuClose}
           >
             {/* Profile menu items */}
-            <MenuItem onClick={handleProfileMenuClose}>Profile</MenuItem>
-            <NavLink to="/watchlist"  style={{ color:'black', textDecoration: 'none'}} ><MenuItem onClick={handleProfileMenuClose}>Watchlist</MenuItem></NavLink>
+            <NavLink to="/profile"  style={{ color:'black', textDecoration: 'none'}} ><MenuItem onClick={handleProfileMenuClose}>Profile</MenuItem></NavLink> 
+              <NavLink to="/watchlist"  style={{ color:'black', textDecoration: 'none'}} ><MenuItem onClick={handleProfileMenuClose}>Watchlist</MenuItem></NavLink>
             <MenuItem onClick={handleProfileMenuClose}>Favorites</MenuItem>
             <MenuItem onClick={handleProfileMenuClose}>History</MenuItem>
           </Menu>

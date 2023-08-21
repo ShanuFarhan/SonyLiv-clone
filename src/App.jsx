@@ -14,6 +14,8 @@ import WatchlistPage from './Components/WatchlistPage/WatchlistPage';
 import MoviesSection from './Pages/MoviesSection';
 import TvShows from './Pages/Tvshows';
 import Webseries from './Pages/Webseries';
+import UserProfile from './Pages/UserProfile';
+import SubscriptionPage from './Pages/SubscriptionPage';
 
 
 function App() {
@@ -32,8 +34,9 @@ function App() {
             <Route path='/watchlist' element={[<Navbar/>,<WatchlistPage content={content} setContent={setContent}/>]}/>
             <Route path='/movies' element={[<Navbar/> ,<MoviesSection content={content} setContent={setContent}/>]}/>
             <Route path='/tvshows' element={[<Navbar/> ,<TvShows content={content} setContent={setContent}/>]}/>
-            {/* <Route path='/webseries' element={[<Navbar/> ,<WebSeries/>]}/> */}
             <Route path='/webseries' element={[<Navbar/>,<Webseries content={content} setContent={setContent}/>]}/>
+            <Route path='/profile' element={[<Navbar/>,<UserProfile/>]}/>
+            <Route path='/subscription' element={<SubscriptionPage/>}/>
           </Routes>
          
     </div>

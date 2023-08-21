@@ -26,9 +26,13 @@ const Login = () => {
             },
           });
           const token = response.data.token;
+          const name=response.data.data.name;
+          const email=response.data.data.email;
 
-          // Store the token in local storage
+          // Store the token 
           localStorage.setItem('authToken', token);
+          localStorage.setItem('authName', name);
+          localStorage.setItem('authEmail', email);
           navigate("/home")
           console.log('Login success:', response.data);
           // Handle successful login
