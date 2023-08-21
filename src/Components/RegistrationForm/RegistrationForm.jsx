@@ -70,7 +70,7 @@ const RegistrationForm = () => {
       style={{backgroundColor:'red',margin:'40px 0 0 30px',width:400}}>
         Sign Up
       </Button>
-      <Typography variant='subtitle2' style={{color:'white',margin:'30px'}}>Already have an acount?<Link style={{fontWeight:700,color:'white'}} to="/login">Login</Link></Typography>
+      <Typography variant='subtitle2' style={{color:'white',margin:'30px'}}>Already have an acount?<Link style={{fontWeight:700,color:'white'}} to="/">Login</Link></Typography>
       </Box>
     </form>
   );
