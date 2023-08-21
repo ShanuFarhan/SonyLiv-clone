@@ -3,7 +3,7 @@ import { TextField, Button,Box, Typography } from '@mui/material';
 import axios from 'axios';
 import { PROJECT_ID } from '../../api';
 import './RegistrationForm.css'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const RegistrationForm = () => {
   const navigate=useNavigate()
   const [formData, setFormData] = useState({
@@ -70,7 +70,7 @@ const RegistrationForm = () => {
       style={{backgroundColor:'red',margin:'40px 0 0 30px',width:400}}>
         Sign Up
       </Button>
-      <Typography variant='subtitle2' style={{color:'white',margin:'30px'}}>Already have an acount?<a style={{fontWeight:700,color:'white'}} href="/login">Login</a></Typography>
+      <Typography variant='subtitle2' style={{color:'white',margin:'30px'}}>Already have an acount?<Link style={{fontWeight:700,color:'white'}} href="/login">Login</Link></Typography>
       </Box>
     </form>
   );
