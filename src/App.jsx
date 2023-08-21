@@ -11,9 +11,9 @@ import Login  from './Components/Login/Login';
 import UpdatePasswordForm from './Components/UpdatePasswordForm/UpdatePasswordForm';
 import ContentDetailsPage from './Components/ContentDetailsPage/ContentDetailsPage';
 import WatchlistPage from './Components/WatchlistPage/WatchlistPage';
-import MoviesSection from './Components/MoviesSection';
-import TvShows from './Components/Tvshows';
-import Webseries from './Components/Webseries';
+import MoviesSection from './Pages/MoviesSection';
+import TvShows from './Pages/Tvshows';
+import Webseries from './Pages/Webseries';
 
 
 function App() {

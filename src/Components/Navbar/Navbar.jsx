@@ -34,7 +34,7 @@ const Navbar = () => {
             Home
           </Link>
           <Link
-            href="/movies"
+            to="/movies"
             underline="none"
             color={isLinkActive('/movies') ? 'white' : 'inherit'}
             sx={{ marginRight: 2, fontWeight: isLinkActive('/movies') ? 'bold' : 'normal', '&:hover': { fontWeight: 'bold'  } }}
