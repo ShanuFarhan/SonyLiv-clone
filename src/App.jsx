@@ -13,6 +13,7 @@ import ContentDetailsPage from './Components/ContentDetailsPage/ContentDetailsPa
 import WatchlistPage from './Components/WatchlistPage/WatchlistPage';
 import MoviesSection from './Pages/MoviesSection';
 import TvShows from './Pages/Tvshows';
+import Webseries from './Pages/Webseries';
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
             <Route path='/movies' element={[<Navbar/> ,<MoviesSection/>]}/>
             <Route path='/tvshows' element={[<Navbar/> ,<TvShows/>]}/>
             {/* <Route path='/webseries' element={[<Navbar/> ,<WebSeries/>]}/> */}
-
+            <Route path='/webseries' element={[<Navbar/>,<Webseries/>]}/>
           </Routes>
          
     </div>
