@@ -14,6 +14,7 @@ import WatchlistPage from './Components/WatchlistPage/WatchlistPage';
 import MoviesSection from './Pages/MoviesSection';
 import TvShows from './Pages/Tvshows';
 import WebSeries from './Pages/WEbSeries';
+
 function App() {
   const[content,setContent]=useState([]);
  const[selected,setSelected]=useState([]);
