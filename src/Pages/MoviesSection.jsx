@@ -2,15 +2,18 @@
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { PROJECT_ID } from '../api';
 import { Typography, Container, Grid, Card, CardMedia, CardContent } from '@mui/material';
-const MoviesSection = () => {
+import { useNavigate } from 'react-router-dom';
+const MoviesSection = ({setContent}) => {
+  const navigate=useNavigate()
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     // Fetch movies data using the filter for movies
     axios.get('https://academics.newtonschool.co/api/v1/ott/show?filter={"type": "movie"}', {
       headers: {
-        projectId: 'Your projectId',
+        projectId: PROJECT_ID,
       },
     })
     .then((response) => {
@@ -20,7 +23,18 @@ const MoviesSection = () => {
       console.error(error);
     });
   }, []);
-
+  const handleContent=(e)=>{
+      
+    var selectedId=e.target.name;
+    console.log(e.target.name);
+    for(let i=0;i<movies.length;i++){
+      if(movies[i]._id==selectedId){
+        console.log(movies[i]);
+        setContent(movies[i])
+      }
+    }
+    navigate("/content")
+}
   return (
     <Container>
       {/* <Typography style={{color:'white'}} variant='h4'>MOVIES</Typography> */}
@@ -29,7 +43,7 @@ const MoviesSection = () => {
           // Display movie thumbnails here
           <Grid item xs={8} sm={4} md={2} key={movie._id}>
           <Card>
-            <CardMedia component="img" height="200" image={movie.thumbnail}/>
+            <CardMedia onClick={handleContent} name={movie._id} component="img" height="200" image={movie.thumbnail}/>
           </Card>
         </Grid>
         ))}
