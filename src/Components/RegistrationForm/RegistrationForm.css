@@ -1,0 +1,19 @@
+form{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    border: solid black;
+    background-image: url('https://repository-images.githubusercontent.com/299409710/b42f7780-0fe1-11eb-8460-e459acd20fb4');
+    background-size: cover; 
+}
+.input{
+    height: 50px;
+    width: 24%;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    background-color: #333;
+    color: white;
+    font-weight: 600;
+}

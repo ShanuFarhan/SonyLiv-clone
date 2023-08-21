@@ -1,0 +1,23 @@
+body{
+    background-color: black;
+}
+.navbar{
+    background-color: black;
+    color: white;
+    
+}
+/* .subbtn{
+    width: 8%;
+    height: 25px;
+} */
+.navbar img{
+    height: 25px;
+    padding-right: 10px;
+
+}
+.searchicon{
+    color: white;
+}
+.input{
+    background-color: white;
+}
