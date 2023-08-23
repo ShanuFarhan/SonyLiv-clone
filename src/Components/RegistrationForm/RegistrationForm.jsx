@@ -10,6 +10,7 @@ const RegistrationForm = () => {
     name: '',
     email: '',
     password: '',
+    confirmPassword: '',
     appType : "ott"
     
   });
@@ -18,6 +19,10 @@ const RegistrationForm = () => {
     const newErrors = {};
     if (!formData.email) newErrors.email = 'Email is required';
     if (!formData.password) newErrors.password = 'Password is required';
+    if (!formData.confirmPassword) newErrors.confirmPassword = 'Confirm Password is required';
+    if (formData.password !== formData.confirmPassword) {
+      newErrors.confirmPassword = 'Passwords do not match';
+    }
     // Validate name
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
@@ -57,7 +62,7 @@ const RegistrationForm = () => {
           projectId: PROJECT_ID,
         },
       });
-      navigate("/")
+      navigate("/home")
       console.log('Registration success:', response.data);
     } catch (error) {
       console.error('Registration error:', error);
@@ -72,10 +77,10 @@ const RegistrationForm = () => {
 
   return (
     <form style={{height:600}} onSubmit={handleSubmit}>
-        <Box sx={{height:500, opacity: 0.5,backgroundColor:'black',width:500,margin:'0px 50px 0 50px'}}>
+        <Box sx={{height:550, opacity: 0.5,backgroundColor:'black',width:500,margin:'0px 50px 0 70px'}}>
       <Typography  
-      style={{color:'white',marginTop:50,marginLeft:150}} variant='h4'>Register</Typography>
-      <input style={{paddingLeft:15,height:55,fontSize:16,color:'black',borderRadius:10,marginLeft:50,width:350,marginTop:30}}
+      style={{color:'white',marginTop:30,marginLeft:150}} variant='h4'>Register</Typography>
+      <input style={{paddingLeft:15,height:55,fontSize:16,color:'black',borderRadius:10,marginLeft:50,width:350,marginTop:20}}
         placeholder="Username"
         name="name"
         value={formData.name}
@@ -101,6 +106,16 @@ const RegistrationForm = () => {
         
       />
       {errors.password && <Typography marginLeft="30px" variant='subtitle' color="error">{errors.password}</Typography>}
+
+      <input style={{paddingLeft:15,height:55,fontSize:16,color:'black',borderRadius:10,marginLeft:50,width:350,marginTop:30}}
+          placeholder="Confirm Password"
+          type="password"
+          name="confirmPassword"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+        />
+      {errors.confirmPassword && <Typography marginLeft="30px" variant='subtitle' color="error">{errors.confirmPassword}</Typography>}
+
       <Button type="submit" variant="contained"
       style={{backgroundColor:'red',margin:'40px 0 0 50px',width:350}}>
         Sign Up
