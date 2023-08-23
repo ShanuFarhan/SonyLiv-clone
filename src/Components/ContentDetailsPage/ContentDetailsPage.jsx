@@ -5,10 +5,10 @@ import {BsFillPlayFill} from 'react-icons/bs'
 import {AiOutlineClose} from 'react-icons/ai'
 import axios from 'axios';
 import { PROJECT_ID } from '../../api';
-const ContentDetailsPage = ({ content }) => {
+const ContentDetailsPage = ({ content,setSelected }) => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [isInWatchlist, setIsInWatchlist] = useState(false);
-
+  // const[watchAdded,setWatchAdded]=useState([])
   const handleOpenVideo = () => {
     setIsVideoOpen(true);
   };
@@ -18,7 +18,7 @@ const ContentDetailsPage = ({ content }) => {
   };
   const token = localStorage.getItem('authToken');
   console.log(token);
-  const addToWatchlist = async () => {
+  const addToWatchlist = async (e) => {
     try {
       if (isInWatchlist) {
         // Remove from watchlist
@@ -49,14 +49,25 @@ const ContentDetailsPage = ({ content }) => {
         );
         
       }
-      console.log("Wat");
+      // console.log("Watchlist added");
+     
       setIsInWatchlist(!isInWatchlist);
+      // console.log("added",!isInWatchlist);
+      var selectedId=e.target.name;
+        console.log(e.target.name);
+      
+          if(content._id==selectedId){
+            console.log(content);
+            setSelected(content)
+          }
+      // setWatchAdded(content)
+      // console.log("added",watchAdded);
     } catch (error) {
       console.error('Watchlist action error:', error);
-      // if (error.response) {
-      //   console.log('Response status:', error.response.status);
-      //   console.log('Error data:', error.response.data);
-      // }
+      if (error.response) {
+        console.log('Response status:', error.response.status);
+        console.log('Error data:', error.response.data);
+      }
     }
   };
   return (
@@ -78,7 +89,7 @@ const ContentDetailsPage = ({ content }) => {
          ):(
         <Box style={{color:'white'}} display="flex" flexDirection="column" alignItems="center">
           
-          <img src={content.thumbnail} alt={content.title} style={{ width: '80%', maxWidth: '300px' }} />
+          <img src={content.thumbnail}  alt={content.title} style={{ width: '80%', maxWidth: '300px' }} />
           <Typography variant="h4" gutterBottom>
             {content.title}
           </Typography>
@@ -106,7 +117,7 @@ const ContentDetailsPage = ({ content }) => {
           <Button onClick={handleOpenVideo} style={{marginTop:10,backgroundColor:'white',color:'black',fontWeight:600}} 
               variant='contained'><BsFillPlayFill/>Watch Free Preview</Button>  
                     
-          <Button variant="contained" color="primary" onClick={addToWatchlist}>
+          <Button name={content._id} variant="contained" color="primary" onClick={addToWatchlist}>
         {isInWatchlist ? 'Remove from Watchlist' : 'Add to Watchlist'}
       </Button>
               </Box>

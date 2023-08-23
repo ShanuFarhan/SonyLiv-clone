@@ -9,7 +9,21 @@ const Login = () => {
     const [formData, setFormData] = useState({
         email: '',
         password: '',
+        appType:'ott'
       });
+      const [errors, setErrors] = useState({});
+      const validateForm = () => {
+        const newErrors = {};
+    
+        if (!formData.email) newErrors.email = 'Email is required';
+        if (!formData.password) newErrors.password = 'Password is required';
+    
+        setErrors(newErrors);
+        setTimeout(() => {
+          setErrors({});
+        }, 5000);
+        return Object.keys(newErrors).length === 0;
+      };
     
       const handleChange = (e) => {
         const { name, value } = e.target;
@@ -18,7 +32,8 @@ const Login = () => {
     
       const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
+        if (validateForm()) {
+          try {
           const response = await axios.post('https://academics.newtonschool.co/api/v1/user/login', formData, {
             headers: {
               'Content-Type': 'application/json',
@@ -38,8 +53,11 @@ const Login = () => {
           // Handle successful login
         } catch (error) {
           console.error('Login error:', error);
-          // Handle login error
-        }
+          if (error.response) {
+            console.log('Response status:', error.response.status);
+            console.log('Error data:', error.response.data);
+          }
+        }}
       };
   return (
     <form style={{height:600}} onSubmit={handleSubmit}>
@@ -53,7 +71,10 @@ const Login = () => {
         type='email'
         value={formData.email}
         onChange={handleChange}
+        
       />
+        {errors.email && <Typography marginLeft="30px" variant='subtitle' color="error">{errors.email}</Typography>}
+
       <input style={{paddingLeft:15,height:55,fontSize:16,color:'black',borderRadius:10,marginLeft:30,width:400,marginTop:30}}
         placeholder="Password"
         name="password"
@@ -61,7 +82,8 @@ const Login = () => {
         value={formData.password}
         onChange={handleChange}
       />
-      
+        {errors.password && <Typography marginLeft="30px" variant='subtitle' color="error">{errors.password}</Typography>}
+
       <Button type="submit" variant="contained" 
       style={{backgroundColor:'red',margin:'40px 0 0 30px',width:400}}>
         Login

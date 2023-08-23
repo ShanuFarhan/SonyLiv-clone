@@ -10,7 +10,37 @@ const RegistrationForm = () => {
     name: '',
     email: '',
     password: '',
+    appType : "ott"
+    
   });
+  const [errors, setErrors] = useState({});
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.email) newErrors.email = 'Email is required';
+    if (!formData.password) newErrors.password = 'Password is required';
+    // Validate name
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+
+    // Validate email
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!formData.email.match(emailPattern)) {
+      newErrors.email = 'Invalid email address';
+    }
+
+    // Validate password
+    if (formData.password.length < 6) {
+      newErrors.password = 'Password must be at least 6 characters';
+    }
+
+    setErrors(newErrors);
+    setTimeout(() => {
+      setErrors({});
+    }, 5000);
+    // Return true if there are no errors, indicating a valid form
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,6 +49,7 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (validateForm()) {
     try {
       const response = await axios.post('https://academics.newtonschool.co/api/v1/user/signup', formData, {
         headers: {
@@ -35,6 +66,7 @@ const RegistrationForm = () => {
         console.log('Error data:', error.response.data);
       }
     }
+  }
   };
   
 
@@ -50,6 +82,7 @@ const RegistrationForm = () => {
         onChange={handleChange}
         
       />
+      {errors.name && <Typography marginLeft="30px" variant='subtitle' color="error">{errors.name}</Typography>}
       <input style={{paddingLeft:15,height:55,fontSize:16,color:'black',borderRadius:10,marginLeft:30,width:400,marginTop:30}}
         placeholder="Email"
         name="email"
@@ -58,6 +91,7 @@ const RegistrationForm = () => {
         onChange={handleChange}
       
       />
+      {errors.email && <Typography marginLeft="30px" variant='subtitle' color="error">{errors.email}</Typography>}
       <input style={{paddingLeft:15,height:55,fontSize:16,color:'black',borderRadius:10,marginLeft:30,width:400,marginTop:30}}
         placeholder="Password"
         name="password"
@@ -66,6 +100,7 @@ const RegistrationForm = () => {
         onChange={handleChange}
         
       />
+      {errors.password && <Typography marginLeft="30px" variant='subtitle' color="error">{errors.password}</Typography>}
       <Button type="submit" variant="contained"
       style={{backgroundColor:'red',margin:'40px 0 0 30px',width:400}}>
         Sign Up

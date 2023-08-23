@@ -1,6 +1,7 @@
 export const WEBSERIES='https://academics.newtonschool.co/api/v1/ott/show?filter={"type" : "web series"}'
 const BASE_URL = 'https://academics.newtonschool.co/api/v1/ott';
-export const PROJECT_ID = 'https://academics.newtonschool.co/api/v1/ott/show/:id';
+// export const PROJECT_ID = 'https://academics.newtonschool.co/api/v1/ott/show/:id';
+export const PROJECT_ID='xybcw190kyb8'
 //https://academics.newtonschool.co/api/v1/ott/show/:id
 export const fetchShows = async (page, limit) => {
   try {

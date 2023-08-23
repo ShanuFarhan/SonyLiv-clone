@@ -30,8 +30,8 @@ function App() {
             <Route path='/' element={<Login/>}/>
             <Route path='/home' element={[<Navbar/>,<HeroBanner/>,<Banner content={content} setContent={setContent} />]}/>
             <Route path='/updatepassword' element={<UpdatePasswordForm/>}/>
-            <Route path='/content' element={[<Navbar/>,<ContentDetailsPage content={content} setContent={setContent}/>]}/>
-            <Route path='/watchlist' element={[<Navbar/>,<WatchlistPage content={content} setContent={setContent}/>]}/>
+            <Route path='/content' element={[<Navbar/>,<ContentDetailsPage selected={selected} setSelected={setSelected} content={content} setContent={setContent}/>]}/>
+            <Route path='/watchlist' element={[<Navbar/>,<WatchlistPage selected={selected} setSelected={setSelected} content={content} setContent={setContent}/>]}/>
             <Route path='/movies' element={[<Navbar/> ,<MoviesSection content={content} setContent={setContent}/>]}/>
             <Route path='/tvshows' element={[<Navbar/> ,<TvShows content={content} setContent={setContent}/>]}/>
             <Route path='/webseries' element={[<Navbar/>,<Webseries content={content} setContent={setContent}/>]}/>
