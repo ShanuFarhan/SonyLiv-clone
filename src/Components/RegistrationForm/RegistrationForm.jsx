@@ -75,7 +75,7 @@ const RegistrationForm = () => {
         <Box sx={{height:500, opacity: 0.5,backgroundColor:'black',width:500,margin:'0px 50px 0 50px'}}>
       <Typography  
       style={{color:'white',marginTop:50,marginLeft:150}} variant='h4'>Register</Typography>
-      <input style={{paddingLeft:15,height:55,fontSize:16,color:'black',borderRadius:10,marginLeft:30,width:400,marginTop:30}}
+      <input style={{paddingLeft:15,height:55,fontSize:16,color:'black',borderRadius:10,marginLeft:50,width:350,marginTop:30}}
         placeholder="Username"
         name="name"
         value={formData.name}
@@ -83,7 +83,7 @@ const RegistrationForm = () => {
         
       />
       {errors.name && <Typography marginLeft="30px" variant='subtitle' color="error">{errors.name}</Typography>}
-      <input style={{paddingLeft:15,height:55,fontSize:16,color:'black',borderRadius:10,marginLeft:30,width:400,marginTop:30}}
+      <input style={{paddingLeft:15,height:55,fontSize:16,color:'black',borderRadius:10,marginLeft:50,width:350,marginTop:30}}
         placeholder="Email"
         name="email"
         type='email'
@@ -92,7 +92,7 @@ const RegistrationForm = () => {
       
       />
       {errors.email && <Typography marginLeft="30px" variant='subtitle' color="error">{errors.email}</Typography>}
-      <input style={{paddingLeft:15,height:55,fontSize:16,color:'black',borderRadius:10,marginLeft:30,width:400,marginTop:30}}
+      <input style={{paddingLeft:15,height:55,fontSize:16,color:'black',borderRadius:10,marginLeft:50,width:350,marginTop:30}}
         placeholder="Password"
         name="password"
         type='password'
@@ -102,7 +102,7 @@ const RegistrationForm = () => {
       />
       {errors.password && <Typography marginLeft="30px" variant='subtitle' color="error">{errors.password}</Typography>}
       <Button type="submit" variant="contained"
-      style={{backgroundColor:'red',margin:'40px 0 0 30px',width:400}}>
+      style={{backgroundColor:'red',margin:'40px 0 0 50px',width:350}}>
         Sign Up
       </Button>
       <Typography variant='subtitle2' style={{color:'white',margin:'30px'}}>Already have an acount?<Link style={{fontWeight:700,color:'white'}} to="/">Login</Link></Typography>

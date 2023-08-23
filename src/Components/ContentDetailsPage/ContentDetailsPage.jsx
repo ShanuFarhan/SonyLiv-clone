@@ -117,7 +117,9 @@ const ContentDetailsPage = ({ content,setSelected }) => {
           <Button onClick={handleOpenVideo} style={{marginTop:10,backgroundColor:'white',color:'black',fontWeight:600}} 
               variant='contained'><BsFillPlayFill/>Watch Free Preview</Button>  
                     
-          <Button name={content._id} variant="contained" color="primary" onClick={addToWatchlist}>
+          <Button name={content._id} 
+          style={{marginTop:10,backgroundColor:'white',color:'black',fontWeight:600}}
+           variant="contained" color="primary" onClick={addToWatchlist}>
         {isInWatchlist ? 'Remove from Watchlist' : 'Add to Watchlist'}
       </Button>
               </Box>

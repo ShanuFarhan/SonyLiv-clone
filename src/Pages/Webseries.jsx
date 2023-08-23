@@ -41,7 +41,7 @@ const navigate=useNavigate()
       <Grid container spacing={3}>
         {movies.map((movie) => (
           // Display movie thumbnails here
-          <Grid item xs={8} sm={4} md={2} key={movie._id}>
+          <Grid item xs={6} sm={4} md={2} key={movie._id}>
           <Card>
             <CardMedia onClick={handleContent} name={movie._id} component="img" height="200" image={movie.thumbnail}/>
           </Card>

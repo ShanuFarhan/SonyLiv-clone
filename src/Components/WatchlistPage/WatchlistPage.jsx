@@ -2,8 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { PROJECT_ID } from '../../api';
 import { Card, CardMedia, Typography,Grid } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 const WatchlistPage = ({selected}) => {
   const [watchlist, setWatchlist] = useState([]);
+  const navigate=useNavigate()
   console.log("success",watchlist);
   const token=localStorage.getItem('authToken')
 
@@ -25,17 +27,31 @@ const WatchlistPage = ({selected}) => {
       
     });
   }, []);
-
+  const handleContent=(e)=>{
+      
+    var selectedId=e.target.name;
+    console.log(e.target.name);
+    for(let i=0;i<selected.length;i++){
+      if(selected[i]._id==selectedId){
+        console.log(selected[i]);
+        setWatchlist(selected[i])
+      }
+    }
+    navigate("/content")
+}
   return (
     <div>
-      <Typography variant='h4' style={{color:'white'}}>My Watchlist</Typography>
+      <Typography variant='h4' style={{margin:"30px",color:'white'}}>My Watchlist</Typography>
       {/* <Typography style={{color:'white'}}>{content.title}</Typography> */}
-      <img src={selected.thumbnail} alt={selected.title} style={{height:350, width: '80%', maxWidth: '300px' }} />
-      {/* <Grid item xs={8} sm={4} md={2} key={content._id}> 
-          <Card>
-            <CardMedia component="img" height="200" image={content.thumbnail}/>
-          </Card>
-        </Grid> */}
+      {watchlist ?(
+      <Grid item xs={8} sm={4} md={2} key={selected._id} style={{border:"black"}}> 
+          
+            <img onClick={handleContent} name={selected._id} src={selected.thumbnail} alt={selected.title} style={{margin:"30px 50px",height:300, width: '80%', maxWidth: '300px' }} />
+
+        </Grid>
+        ):(
+          <h2>No Watchlist added</h2>
+        )}
     </div>
   );
 };

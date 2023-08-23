@@ -41,8 +41,8 @@ const Banner = ({setContent}) => {
       {shows &&shows.map((show) => (
         
         <Grid item xs={8} sm={4} md={2} key={show._id}>
-          <Card>
-            <CardMedia onClick={handleContent} component="img" height="200" name={show._id} image={show.thumbnail}/>
+          <Card style={{borderRadius:15}}>
+            <CardMedia  onClick={handleContent} component="img" height="200" name={show._id} image={show.thumbnail}/>
           </Card>
         </Grid>
 ))}
